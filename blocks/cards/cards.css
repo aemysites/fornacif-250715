@@ -217,14 +217,13 @@
 
 
 .cards.cards17 {
-  /* Ensure block background is white for clean card display */
   background: #fff;
   padding: 0;
 }
 
 .cards.cards17 > ul {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Always 3 columns on desktop */
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin: 0;
   padding: 0;
@@ -243,7 +242,6 @@
   aspect-ratio: 1 / 1;
 }
 
-/* Responsive adjustment: stack cards vertically on small screens */
 @media (width <= 900px) {
   .cards.cards17 > ul {
     grid-template-columns: 1fr;
@@ -260,12 +258,107 @@
 }
 
 .cards.cards17 > ul > li img {
-  border-radius: 0; /* Prevent double rounding, handled by li */
+  border-radius: 0;
   aspect-ratio: 1 / 1;
   background: #fff;
 }
 
-/* Hide card body if empty to avoid extra spacing */
 .cards.cards17 .cards-card-body:empty {
   display: none;
+}
+
+
+.cards.cards19 ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 22px 28px;  /* slightly reduced gap for closer match */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  min-width: 0;
+}
+
+@media (width <= 1000px) {
+  .cards.cards19 ul {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 18px 12px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards19 ul {
+    grid-template-columns: 1fr;
+    gap: 14px 0;
+  }
+}
+
+.cards.cards19 ul > li {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+  min-height: 24px;
+}
+
+.cards.cards19 .cards-card-image {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.cards.cards19 .cards-card-image img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  aspect-ratio: 1/1;
+  box-shadow: none;
+  align-self: flex-start;
+  vertical-align: top;
+  position: relative;
+  top: -1px; /* nudges icon to be perfectly aligned with text */
+}
+
+.cards.cards19 .cards-card-body {
+  flex: 1 1 0;
+  margin: 0;
+  padding: 0;
+  color: #222;
+  font-family: 'Instrument Sans', 'Instrument Sans Fallback', sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: 0;
+  display: block;
+  align-self: flex-start;
+  max-width: 230px; /* slightly narrower for more uniform columns */
+  overflow-wrap: break-word;
+}
+
+.cards.cards19 .cards-card-body p {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
 }
