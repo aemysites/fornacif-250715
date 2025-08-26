@@ -669,7 +669,6 @@ main > div.hero-container,
   min-width: 0;
 }
 
-/* Outer row: two columns - text block (column) and button (right) */
 .hero.hero35 > div:last-child {
   flex: 5 1 0;
   display: flex;
@@ -679,7 +678,6 @@ main > div.hero-container,
   padding: 40px 0;
 }
 
-/* Use grid to simulate the "two columns" layout, grouping h2 and subheading */
 .hero.hero35 > div:last-child > div {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -689,7 +687,6 @@ main > div.hero-container,
   min-width: 0;
 }
 
-/* Text block: stack h2 and subheading vertically in the first column */
 .hero.hero35 > div:last-child > div > h2,
 .hero.hero35 > div:last-child > div > p:not(.button-container) {
   grid-column: 1 / 2;
@@ -707,8 +704,6 @@ main > div.hero-container,
   margin-bottom: 10px;
   line-height: 1.12;
   letter-spacing: 0;
-
-  /* Stack with p below */
 }
 
 .hero.hero35 > div:last-child > div > p:not(.button-container) {
@@ -720,7 +715,6 @@ main > div.hero-container,
   margin-top: 0;
 }
 
-/* Place the button in the second column, align to right */
 .hero.hero35 > div:last-child > div > .button-container {
   grid-column: 2 / 3;
   margin-left: auto;
@@ -759,7 +753,6 @@ main > div.hero-container,
   box-shadow: 0 4px 0 0 #e6e600;
 }
 
-/* Responsive adjustments for mobile */
 @media (width <= 900px) {
   .hero.hero35 {
     flex-direction: column;
@@ -790,5 +783,148 @@ main > div.hero-container,
     font-size: 0.98rem;
     line-height: 38px;
     height: 38px;
+  }
+}
+
+
+.hero.hero39 {
+  position: relative;
+  width: 100vw;
+  min-height: 95vh;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow: hidden;
+  background: none;
+  padding: 0;
+}
+
+/* Background image fills the hero */
+.hero.hero39 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  display: block;
+}
+
+.hero.hero39 > div:first-child > div,
+.hero.hero39 > div:first-child picture,
+.hero.hero39 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Foreground content: split into two groups using CSS grid for vertical placement */
+.hero.hero39 > div:last-child {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: start;
+  height: 100%;
+  max-width: 600px;
+  padding: 7vw 0 5vw 7vw;
+  box-sizing: border-box;
+}
+
+/* Headline always stays high */
+.hero.hero39 h1 {
+  font-family: Syncopate, Orbitron, Eurostile, Futura, Arial, sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.7rem);
+  font-weight: 400;
+  line-height: 1.07;
+  letter-spacing: 0.01em;
+  color: #fff;
+  margin: 0;
+  text-align: left;
+  text-shadow: 0 2px 24px rgb(0 0 0 / 37%);
+  grid-row: 1;
+}
+
+/* Stack supporting text and button on the bottom of the block */
+.hero.hero39 > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  place-self: end start;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
+  grid-row: 3;
+}
+
+/* Supporting text: keep near the bottom */
+.hero.hero39 p:not(.button-container) {
+  font-size: 1.16rem;
+  color: #e0e0e0;
+  font-weight: 300;
+  line-height: 1.7;
+  max-width: 430px;
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  text-align: left;
+  text-shadow: 0 2px 24px rgb(0 0 0 / 32%);
+}
+
+/* Button: increase margin-top for separation from text, and add some air below */
+.hero.hero39 .button-container {
+  margin: 0.9rem 0 0;
+}
+
+.hero.hero39 .button {
+  background: rgb(30 30 30 / 34%);
+  color: #fff;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 2.1em;
+  font-size: 1.05rem;
+  font-weight: 400;
+  padding: 0.7em 2em;
+  margin: 0;
+  text-align: center;
+  box-shadow: none;
+  transition: background 0.2s, border 0.2s;
+}
+
+.hero.hero39 .button:hover,
+.hero.hero39 .button:focus {
+  background: rgb(255 255 255 / 9%);
+  border-color: #fff;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero39 {
+    min-height: 65vh;
+  }
+
+  .hero.hero39 > div:last-child {
+    padding: 8vw 0 5vw 4vw;
+    max-width: 96vw;
+  }
+
+  .hero.hero39 h1 {
+    font-size: clamp(1.6rem, 9vw, 2.7rem);
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero39 {
+    min-height: 48vh;
+  }
+
+  .hero.hero39 > div:last-child {
+    padding: 10vw 0 6vw 3vw;
+    max-width: 100vw;
+  }
+
+  .hero.hero39 h1 {
+    font-size: clamp(1.2rem, 8vw, 2rem);
   }
 }
