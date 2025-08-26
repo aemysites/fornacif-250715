@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -149,5 +149,216 @@
 
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
+  }
+}
+
+
+.carousel.carousel21 .carousel-slide {
+  box-shadow: 0 14px 44px rgb(0 0 0 / 19%), 0 4px 0 #232;
+  border-radius: 22px;
+  border: 3px solid #232;
+  background: #fff;
+  margin: 76px 0 68px 70px;
+  position: relative;
+  overflow: visible;
+  z-index: 4;
+  transform: rotate(-6deg) scale(0.97);
+}
+
+/* Simulate three overlapping collage "prints" below main image */
+.carousel.carousel21 .carousel-slide::before,
+.carousel.carousel21 .carousel-slide::after,
+.carousel.carousel21 .carousel-slide .collage-layer {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 22px;
+  box-shadow: 0 10px 32px rgb(0 0 0 / 13%);
+  z-index: 1;
+}
+
+.carousel.carousel21 .carousel-slide::before {
+  left: -62px;
+  top: 56px;
+  width: 97%;
+  height: 94%;
+  background: #f9f5ea;
+  border: 3px solid #232;
+  transform: rotate(11deg) scale(0.94);
+  opacity: 0.9;
+}
+
+.carousel.carousel21 .collage-layer {
+  left: 68px;
+  top: -61px;
+  width: 89%;
+  height: 92%;
+  background: #e5ebf7;
+  border: 3px solid #232;
+  transform: rotate(-12deg) scale(0.97);
+  opacity: 0.6;
+}
+
+.carousel.carousel21 .carousel-slide::after {
+  left: -32px;
+  top: 120px;
+  width: 110%;
+  height: 96%;
+  background: #fff7e6;
+  border: 3px solid #bbb;
+  transform: rotate(6deg) scale(0.97);
+  opacity: 0.3;
+  z-index: 0;
+}
+
+/* Additional accent lines, more randomness */
+.carousel.carousel21 .carousel-slide .carousel-accent-line,
+.carousel.carousel21 .carousel-slide .carousel-accent-line2,
+.carousel.carousel21 .carousel-slide .carousel-accent-line3 {
+  position: absolute;
+  pointer-events: none;
+  background: none;
+  display: block;
+}
+
+.carousel.carousel21 .carousel-slide .carousel-accent-line {
+  left: 72%;
+  top: 10%;
+  width: 195px;
+  height: 32px;
+  border: none;
+  border-top: 3px solid #232;
+  border-radius: 90px 140px 0 0;
+  transform: rotate(19deg);
+  z-index: 8;
+  opacity: 0.6;
+}
+
+.carousel.carousel21 .carousel-slide .carousel-accent-line2 {
+  left: -16%;
+  bottom: 17%;
+  width: 162px;
+  height: 38px;
+  border: none;
+  border-bottom: 3px solid #232;
+  border-radius: 0 0 110px 180px;
+  transform: rotate(-21deg);
+  z-index: 8;
+  opacity: 0.48;
+}
+
+.carousel.carousel21 .carousel-slide .carousel-accent-line3 {
+  left: 31%;
+  top: -8%;
+  width: 120px;
+  height: 20px;
+  border: none;
+  border-top: 2px dashed #232;
+  border-radius: 80px 120px 0 0;
+  transform: rotate(-11deg) scaleX(-1);
+  z-index: 8;
+  opacity: 0.35;
+}
+
+/* Energetic image border */
+.carousel.carousel21 .carousel-slide .carousel-slide-image picture > img {
+  border-radius: 21px;
+  box-shadow: 0 12px 44px rgb(0 0 0 / 17%);
+  border: 6px solid #fff;
+  transform: rotate(-3deg) scale(1.01);
+  position: relative;
+  z-index: 6;
+}
+
+/* Caption: more free placement, less rigid box, bold font, overlap accent */
+.carousel.carousel21 .carousel-slide .carousel-slide-content {
+  font-family: Syncopate, 'Syncopate Fallback', cursive, sans-serif;
+  background: rgb(28 29 34 / 76%);
+  border-radius: 32px 65px 30px 38px / 34px 68px 18px 50px;
+  box-shadow: 0 10px 38px rgb(0 0 0 / 26%);
+  padding: 32px 60px 28px 54px;
+  margin: 0;
+  position: absolute;
+  left: 6%;
+  bottom: 6%;
+  transform: rotate(-15deg) skew(-10deg, 0deg) scale(1.07);
+  max-width: 82%;
+  font-size: 2.1rem;
+  letter-spacing: 0.06em;
+  z-index: 13;
+  border: 2.5px solid rgb(255 255 255 / 21%);
+  display: flex;
+  align-items: center;
+}
+
+.carousel.carousel21 .carousel-slide .carousel-slide-content p {
+  margin: 0;
+  color: #fff;
+  text-shadow: 3px 6px 18px rgb(0 0 0 / 28%);
+  font-family: Syncopate, 'Syncopate Fallback', cursive, sans-serif;
+  font-weight: 600;
+  font-size: 1.15em;
+  letter-spacing: 0.08em;
+  line-height: 1.18;
+}
+
+/* Caption "scribble" accent under box */
+.carousel.carousel21 .carousel-slide .carousel-slide-content::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 21px;
+  bottom: -25px;
+  width: 155px;
+  height: 4px;
+  background: linear-gradient(90deg, #232 0 60%, transparent 100%);
+  opacity: 0.34;
+  transform: rotate(-21deg) scaleX(-1);
+  border-radius: 2px;
+  z-index: 14;
+}
+
+/* Responsive collage stacking and caption */
+@media (width <= 900px) {
+  .carousel.carousel21 .carousel-slide,
+  .carousel.carousel21 .carousel-slide::before,
+  .carousel.carousel21 .carousel-slide::after,
+  .carousel.carousel21 .collage-layer {
+    margin: 22px 0 18px 4px;
+    border-radius: 10px;
+    left: 0;
+    top: 0;
+    width: 97%;
+    height: 99%;
+  }
+
+  .carousel.carousel21 .carousel-slide .carousel-slide-content {
+    max-width: 99%;
+    left: 0;
+    bottom: 8px;
+    font-size: 1.1rem;
+    padding: 14px 16px 12px 14px;
+    border-radius: 18px 32px 10px 14px / 22px 33px 8px 23px;
+  }
+
+  .carousel.carousel21 .carousel-slide .carousel-accent-line {
+    width: 88px;
+    left: 75%;
+    top: 12%;
+    height: 16px;
+  }
+
+  .carousel.carousel21 .carousel-slide .carousel-accent-line2 {
+    width: 70px;
+    left: -4%;
+    bottom: 7%;
+    height: 11px;
+  }
+
+  .carousel.carousel21 .carousel-slide .carousel-accent-line3 {
+    width: 54px;
+    left: 33%;
+    top: -2%;
+    height: 9px;
   }
 }
