@@ -1078,7 +1078,6 @@
   padding: 0;
 }
 
-/* Main layout: flex row with tightly controlled gap */
 .columns.columns14 > div {
   display: flex;
   flex-direction: row;
@@ -1088,7 +1087,6 @@
   margin: 0;
 }
 
-/* Responsive: stack vertically on small screens */
 @media (width <= 900px) {
   .columns.columns14 > div {
     flex-direction: column;
@@ -1096,7 +1094,6 @@
   }
 }
 
-/* Headline (left column): no extra bottom margin, force top alignment */
 .columns.columns14 > div > div:first-child h2 {
   font-family: var(--heading-font-family);
   font-size: 2.8rem;
@@ -1109,7 +1106,6 @@
   padding: 0;
 }
 
-/* Right column: width, vertical alignment, tight grouping */
 .columns.columns14 > div > div:last-child {
   display: flex;
   flex-direction: column;
@@ -1123,7 +1119,6 @@
   padding-bottom: 0;
 }
 
-/* Paragraph: compact, not too wide, minimal spacing below */
 .columns.columns14 > div > div:last-child p {
   font-family: var(--body-font-family);
   font-size: 1.09rem;
@@ -1135,7 +1130,6 @@
   text-align: left;
 }
 
-/* Button container: left aligned, no extra spacing */
 .columns.columns14 > div > div:last-child .button-container {
   margin: 0;
   width: auto;
@@ -1143,7 +1137,6 @@
   text-align: left;
 }
 
-/* Button: border, size, padding and radius match, subtle hover */
 .columns.columns14 .button-container > .button {
   background: #fff;
   color: #181818;
@@ -1160,7 +1153,6 @@
   line-height: 1.25;
 }
 
-/* Button hover: subtle background, no color shift */
 .columns.columns14 .button-container > .button:hover,
 .columns.columns14 .button-container > .button:focus {
   background: #f5f5f5;
@@ -1168,7 +1160,128 @@
   border-color: #181818;
 }
 
-/* Remove any extra margins on the button container */
 .columns.columns14 p.button-container {
   margin: 0;
+}
+
+
+.columns.columns15 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 36px;
+  padding: 64px 0;
+  width: 100%;
+  box-sizing: border-box;
+
+  /* Ensures image and text are aligned at the top, but allows for optical alignment tweaks below */
+}
+
+/* Left column: slightly wider for better headline wrapping and alignment */
+.columns.columns15 > div > div:not(.columns-img-col) {
+  flex: 0 1 415px;
+  max-width: 415px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  /* Optical adjustment to lower this column slightly to align headline with image top */
+  padding-top: 18px;
+}
+
+/* Headline: tight stacking */
+.columns.columns15 h1 {
+  font-family: Syncopate, 'Syncopate Fallback', sans-serif;
+  font-size: 64px;
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: #1A1A1A;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+/* Paragraph: clean and compact */
+.columns.columns15 p {
+  color: #757575;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+/* Button container: stay grouped under text */
+.columns.columns15 .button-container {
+  display: flex;
+  gap: 12px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Button: match visual weight and shape */
+.columns.columns15 .button-container .button {
+  background: #F7F8F6;
+  color: #1A1A1A;
+  border: 1px solid #1A1A1A;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 22px;
+  margin: 0;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer;
+  display: inline-block;
+  max-width: 100%;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Right column: image should align closely with headline top, be prominent but not oversized */
+.columns.columns15 .columns-img-col {
+  flex: 1 1 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.columns.columns15 .columns-img-col img {
+  border-radius: 24px;
+  box-shadow: 0 6px 32px rgb(20 20 20 / 8%);
+  background: #fff;
+  width: 500px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 0;
+}
+
+/* Responsive: stack columns vertically */
+@media (width <= 900px) {
+  .columns.columns15 > div {
+    flex-direction: column;
+    gap: 32px;
+    padding: 32px 0;
+  }
+
+  .columns.columns15 .columns-img-col {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .columns.columns15 .columns-img-col img {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 0 0;
+  }
+
+  .columns.columns15 > div > div:not(.columns-img-col) {
+    max-width: 100%;
+    flex-basis: 100%;
+    padding-top: 0;
+  }
 }
