@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -38,11 +39,10 @@
   padding: 64px 0;
 }
 
-/* Main row: columns side by side and vertically centered */
 .columns.columns1 > div {
   display: flex;
   flex-direction: row;
-  align-items: center; /* Vertically center both columns in their parent */
+  align-items: center;
   justify-content: center;
   gap: 56px;
   max-width: 1200px;
@@ -51,7 +51,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive: stack columns vertically */
 @media (width <= 900px) {
   .columns.columns1 > div {
     flex-direction: column;
@@ -64,7 +63,6 @@
   }
 }
 
-/* Left column: image */
 .columns.columns1 .columns-img-col {
   flex: 0 0 440px;
   display: flex;
@@ -84,7 +82,6 @@
   margin: 0;
 }
 
-/* Right column: optically vertically center content relative to image */
 .columns.columns1 > div > div:not(.columns-img-col) {
   flex: 1 1 0;
   display: flex;
@@ -94,8 +91,6 @@
   gap: 32px;
   min-width: 320px;
   max-width: 520px;
-
-  /* This margin nudges the text block down for optical balance with the image */
   margin-top: 24px;
   margin-bottom: 24px;
 }
@@ -109,7 +104,6 @@
   }
 }
 
-/* Headline styling */
 .columns.columns1 h1 {
   font-family: Syncopate, "Syncopate Fallback", sans-serif;
   font-size: 64px;
@@ -128,7 +122,6 @@
   }
 }
 
-/* Subheading styling */
 .columns.columns1 p {
   font-size: 16px;
   color: #6c6c6c;
@@ -137,7 +130,6 @@
   max-width: 500px;
 }
 
-/* Button container and button style */
 .columns.columns1 .button-container {
   display: flex;
   gap: 16px;
@@ -166,4 +158,273 @@
   background: #222;
   color: #fff;
   cursor: pointer;
+}
+
+
+.columns.columns2 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 56px;
+}
+
+@media (width <= 900px) {
+  .columns.columns2 > div {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+/* --- Left column: image and intro text --- */
+.columns.columns2 > div > .columns-img-col {
+  flex: 1 1 0;
+  max-width: 470px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 0;
+}
+
+.columns.columns2 > div > .columns-img-col picture img,
+.columns.columns2 > div > .columns-img-col img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 6px 32px rgb(0 0 0 / 10%);
+  margin-bottom: 24px;
+  display: block;
+}
+
+/* Intro text breakdown: tag, headline, subtitle */
+.columns.columns2 > div > .columns-img-col p {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: #222;
+  font-family: var(--body-font-family);
+  line-height: 1.6;
+}
+
+.columns.columns2 > div > .columns-img-col p a:first-child {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 7px;
+}
+
+.columns.columns2 > div > .columns-img-col p a:nth-child(2) {
+  display: block;
+  font-size: 36px;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 9px;
+  line-height: 1.06;
+}
+
+.columns.columns2 > div > .columns-img-col p a:last-child {
+  color: #222;
+  font-size: 14px;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  margin-bottom: 0;
+  margin-top: 3px;
+  display: block;
+  line-height: 1.6;
+}
+
+/* --- Right column --- */
+.columns.columns2 > div > div:not(.columns-img-col) {
+  flex: 1 1 0;
+  max-width: 600px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding-top: 2px;
+}
+
+/* ----- CARD GROUPING: wrap image+tag+headline+desc as a card ----- */
+
+/* Set up a visual card group for the first two cards using a flex column wrapper */
+.columns.columns2 > div > div:not(.columns-img-col) > .card-block {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 7%);
+  padding: 24px 24px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* --- The following simulates pseudo card blocks with given html structure --- */
+.columns.columns2 > div > div:not(.columns-img-col) > p:has(picture) {
+  padding: 0;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding-top: 24px;
+  padding-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Group everything until the next image as one card visually */
+.columns.columns2 > div > div:not(.columns-img-col) > p:has(picture),
+.columns.columns2 > div > div:not(.columns-img-col) > p:has(picture) + .button-container,
+.columns.columns2 > div > div:not(.columns-img-col) > p:has(picture) + .button-container + h3,
+.columns.columns2 > div > div:not(.columns-img-col) > p:has(picture) + .button-container + h3 + .button-container {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 9%);
+  margin-bottom: 0;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.columns.columns2 > div > div:not(.columns-img-col) > .button-container,
+.columns.columns2 > div > div:not(.columns-img-col) > h3,
+.columns.columns2 > div > div:not(.columns-img-col) > .button-container + h3 + .button-container {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.columns.columns2 > div > div:not(.columns-img-col) > .button-container,
+.columns.columns2 > div > div:not(.columns-img-col) > .button-container + h3 + .button-container {
+  padding-bottom: 10px;
+}
+
+.columns.columns2 > div > div:not(.columns-img-col) > h3 {
+  padding-bottom: 6px;
+  font-size: 21px;
+  color: #222;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  margin: 0 0 4px;
+  text-transform: none;
+  letter-spacing: 0;
+  background: none;
+}
+
+.columns.columns2 > div > div:not(.columns-img-col) > p:has(picture) + .button-container + h3 + .button-container {
+  padding-bottom: 18px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+}
+
+/* --- Card image --- */
+.columns.columns2 > div > div:not(.columns-img-col) > p picture img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 8%);
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Card tag (pill) */
+.columns.columns2 > div > div:not(.columns-img-col) > .button-container .button,
+.columns.columns2 > div > div:not(.columns-img-col) > .button-container + h3 + .button-container .button {
+  display: inline-block;
+  font-size: 12px;
+  background: #F6F6F6;
+  color: #888;
+  border-radius: 20px;
+  padding: 2px 16px 2px 12px;
+  font-weight: 600;
+  font-family: var(--body-font-family);
+  letter-spacing: 0.09em;
+  margin-bottom: 7px;
+  margin-top: 0;
+  text-transform: uppercase;
+  border: none;
+  box-shadow: none;
+  max-width: unset;
+  line-height: 1.6;
+}
+
+/* Card headline */
+
+/* Card description */
+.columns.columns2 > div > div:not(.columns-img-col) > .button-container .button[title*="Serve up"],
+.columns.columns2 > div > div:not(.columns-img-col) > .button-container .button[title*="Catch waves"] {
+  font-size: 14px;
+  color: #888;
+  background: none;
+  border-radius: 0;
+  font-weight: 400;
+  margin-bottom: 0;
+  padding: 0;
+  letter-spacing: 0;
+  box-shadow: none;
+  text-transform: none;
+  text-align: left;
+  display: block;
+}
+
+/* --- List section after cards --- */
+.columns.columns2 > div > div:not(.columns-img-col) > h3:nth-of-type(n+3) {
+  margin-top: 30px;
+}
+
+/* List tag (pill) */
+.columns.columns2 > div > div:not(.columns-img-col) > .button-container .button:not([title*="Serve up"], [title*="Catch waves"]) {
+  display: block;
+  font-size: 14px;
+  background: none;
+  color: #888;
+  border-radius: 0;
+  padding: 0;
+  font-weight: 400;
+  font-family: var(--body-font-family);
+  letter-spacing: 0.09em;
+  margin-bottom: 0;
+  text-transform: none;
+  border: none;
+  box-shadow: none;
+  margin-top: 0;
+  text-align: left;
+}
+
+/* List headline */
+.columns.columns2 > div > div:not(.columns-img-col) > h3:not(:nth-of-type(-n+2)) {
+  font-size: 18px;
+  color: #222;
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  margin: 0 0 2px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 12px;
+  background: none;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Remove border from last list item */
+.columns.columns2 > div > div:not(.columns-img-col) > h3:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/* List description */
+
+/* Responsive adjustments */
+@media (width <= 600px) {
+  .columns.columns2 > div > .columns-img-col,
+  .columns.columns2 > div > div:not(.columns-img-col) {
+    max-width: 100%;
+    gap: 14px;
+  }
+
+  .columns.columns2 > div {
+    gap: 12px;
+    padding: 0;
+  }
 }
