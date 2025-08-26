@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -51,13 +52,12 @@
   width: 100vw;
   min-height: 540px;
   display: flex;
-  align-items: center; /* vertical centering */
+  align-items: center;
   justify-content: flex-start;
   overflow: hidden;
   border-radius: 20px;
 }
 
-/* Full background image placement */
 .hero.hero6 > div:first-child {
   position: absolute;
   inset: 0;
@@ -76,7 +76,6 @@
   display: block;
 }
 
-/* Overlay container (second child) */
 .hero.hero6 > div:last-child {
   position: relative;
   z-index: 2;
@@ -89,7 +88,6 @@
   min-height: 0;
 }
 
-/* Overlay box */
 .hero.hero6 > div:last-child > div {
   background: rgb(24 24 24 / 65%);
   border: 2px solid #fff;
@@ -98,17 +96,16 @@
   backdrop-filter: blur(2px);
   max-width: 375px;
   width: 88vw;
-  margin: auto 0 auto 104px; /* Increased for more left breathing room */
-  padding: 68px 38px 54px; /* More top & bottom padding */
+  margin: auto 0 auto 104px;
+  padding: 68px 38px 54px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 38px; /* Increased gap for more air between elements */
+  gap: 38px;
   justify-content: center;
   align-items: flex-start;
 }
 
-/* Headline styles */
 .hero.hero6 h1 {
   font-family: Syncopate, 'Syncopate Fallback', sans-serif;
   font-size: 2.85rem;
@@ -117,18 +114,16 @@
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin: 0 0 36px; /* More space below headline */
+  margin: 0 0 36px;
   max-width: 100%;
 }
 
-/* Description text styles */
 .hero.hero6 p {
   color: rgb(255 255 255 / 75%);
   font-size: 1.08rem;
-  margin: 0 0 44px; /* Larger gap below paragraph */
+  margin: 0 0 44px;
 }
 
-/* Button row styles */
 .hero.hero6 .button-container {
   display: flex;
   flex-direction: row;
@@ -138,7 +133,6 @@
   margin-top: 10px;
 }
 
-/* Button styling (more specific selector to override base) */
 .hero-container > .hero-wrapper > .hero.hero6 .button {
   font-size: 1.08rem;
   font-weight: 500;
@@ -152,14 +146,12 @@
   transition: background 0.2s, color 0.2s, border 0.2s;
 }
 
-/* If there is more than one button, style the second as a secondary */
 .hero-container > .hero-wrapper > .hero.hero6 .button:not(:first-child) {
   background: transparent;
   color: #fff;
   border: 2px solid #fff;
 }
 
-/* Button hover/focus */
 .hero-container > .hero-wrapper > .hero.hero6 .button:hover,
 .hero-container > .hero-wrapper > .hero.hero6 .button:focus {
   background: #eaeaea;
@@ -167,7 +159,6 @@
   border-color: #eaeaea;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .hero.hero6 {
     min-height: 380px;
@@ -190,5 +181,219 @@
   .hero.hero6 p {
     font-size: 1rem;
     margin-bottom: 18px;
+  }
+}
+
+
+.hero.hero12 {
+  /* Ensure content and overlay stacking is handled with relative/absolute positioning,
+     not grid centering, so overlay can be aligned left like the reference */
+  position: relative;
+  width: 100vw;
+  min-height: 420px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 24px;
+  box-sizing: border-box;
+  background: none;
+  display: block;
+}
+
+/* Make sure the hero can span the full width */
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+/* Background image is the first child div and fills the hero */
+.hero.hero12 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero.hero12 > div:first-child picture,
+.hero.hero12 > div:first-child img {
+  width: 100vw;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay Panel: absolute, left-aligned, vertically centered */
+.hero.hero12 > div:last-child {
+  position: absolute;
+  left: 4vw;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: rgb(0 0 0 / 25%);
+  border: 1.5px solid rgb(0 0 0 / 19%);
+  border-radius: 20px;
+  box-shadow: 0 6px 32px 0 rgb(0 0 0 / 11%);
+  padding: 2.8rem 2.5rem 2.7rem 2.3rem;
+  min-width: 600px;
+  max-width: 790px;
+  min-height: 260px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2.3rem;
+  box-sizing: border-box;
+}
+
+/* ---- Overlay internal layout: image left, content right ---- */
+.hero.hero12 > div:last-child > div {
+  display: flex;
+  flex-direction: row;
+  gap: 2.3rem;
+  align-items: stretch;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Left square image */
+.hero.hero12 > div:last-child > div > p:first-child {
+  margin: 0;
+  padding: 0;
+  align-self: flex-start;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.hero.hero12 > div:last-child > div > p:first-child picture,
+.hero.hero12 > div:last-child > div > p:first-child img {
+  width: 150px;
+  height: 150px;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 3px 12px 0 rgb(0 0 0 / 13%);
+  background: #e2e2e2;
+  display: block;
+}
+
+/* Right content column */
+.hero.hero12 > div:last-child > div > :not(:first-child) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+/* Headline styling */
+.hero.hero12 h2 {
+  font-family: var(--heading-font-family);
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #232323;
+  margin: 0 0 1.6rem;
+  max-width: 100%;
+  text-align: left;
+}
+
+/* Text lines: icons and text inline */
+.hero.hero12 > div:last-child > div > :not(:first-child) > p {
+  margin: 0 0 0.7rem;
+  color: #232323;
+  font-size: 1.09rem;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  line-height: 1.35;
+  display: flex;
+  align-items: center;
+  gap: 0.65em;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.hero.hero12 > div:last-child > div > :not(:first-child) > p picture img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  margin-right: 0.3em;
+  vertical-align: middle;
+}
+
+/* Remove margin for last text line before button */
+.hero.hero12 > div:last-child > div > :not(:first-child) > p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Divider before the button */
+.hero.hero12 > div:last-child > div > :not(:first-child) > .button-container {
+  margin-top: 1.3rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgb(40 40 40 / 16%);
+}
+
+/* Button styling */
+.hero-container > .hero-wrapper > .block.hero.hero12 .button-container .button {
+  background: transparent;
+  border: 1.5px solid #1a1a1a;
+  border-radius: 22px;
+  color: #111;
+  font-size: 1.13rem;
+  font-weight: 600;
+  padding: 0.7em 2.3em;
+  text-transform: uppercase;
+  margin: 0;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 3%);
+  transition: background 0.13s, color 0.13s;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero12 .button-container .button:hover,
+.hero-container > .hero-wrapper > .block.hero.hero12 .button-container .button:focus {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+/* Responsive: stack overlay vertically on small screens, shrink image */
+@media (width <= 900px) {
+  .hero.hero12 > div:last-child {
+    position: static;
+    transform: none;
+    min-width: unset;
+    max-width: 99vw;
+    width: 98vw;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 0 auto;
+    padding: 1.2rem 0.5rem 1.5rem;
+  }
+
+  .hero.hero12 > div:last-child > div {
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .hero.hero12 > div:last-child > div > p:first-child picture,
+  .hero.hero12 > div:last-child > div > p:first-child img {
+    width: 95px;
+    height: 95px;
+    border-radius: 12px;
+    margin-bottom: 1.3rem;
+  }
+
+  .hero.hero12 h2 {
+    font-size: 1.65rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero.hero12 > div:last-child > div > :not(:first-child) > p {
+    font-size: 0.97rem;
   }
 }
