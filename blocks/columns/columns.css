@@ -1483,7 +1483,6 @@
   line-height: 1.4;
   text-align: left;
   display: block;
-  word-break: break-word;
   overflow-wrap: break-word;
   padding: 0;
 }
@@ -1685,7 +1684,6 @@
   padding: 48px 0;
 }
 
-/* Root columns row: flex for exact visual alignment */
 .columns.columns27 > div {
   display: flex;
   flex-direction: row;
@@ -1704,7 +1702,6 @@
   }
 }
 
-/* Left text column */
 .columns.columns27 > div > div:first-child {
   flex: 1 1 56%;
   max-width: 56%;
@@ -1714,7 +1711,6 @@
   min-width: 0;
 }
 
-/* Byline (first p) */
 .columns.columns27 > div > div:first-child > p:first-child {
   font-size: 12px;
   text-transform: uppercase;
@@ -1724,18 +1720,10 @@
   font-weight: 400;
 }
 
-/* Headline */
 .columns.columns27 > div > div:first-child > h2 {
-  font-family: Montserrat, Futura, Syncopate, var(--heading-font-family), sans-serif;
-  font-size: 60px;
-  font-weight: 400;
-  line-height: 1.02;
-  letter-spacing: 0.01em;
-  color: #111;
-  margin: 0 0 36px;
-  text-transform: none;
-  word-break: break-word;
-}
+    font-size: 38px;
+    margin-bottom: 24px;
+  }
 
 @media (width <= 900px) {
   .columns.columns27 > div > div:first-child > h2 {
@@ -1744,7 +1732,6 @@
   }
 }
 
-/* Main paragraph (second p) */
 .columns.columns27 > div > div:first-child > p:nth-of-type(2) {
   font-size: 17px;
   color: #222;
@@ -1752,7 +1739,6 @@
   margin: 0 0 26px;
 }
 
-/* Subtext (third p) */
 .columns.columns27 > div > div:first-child > p:nth-of-type(3) {
   font-size: 13px;
   color: #b2b2b2;
@@ -1760,12 +1746,10 @@
   line-height: 1.5;
 }
 
-/* Button container (4th p with button) */
 .columns.columns27 > div > div:first-child > p.button-container {
   margin: 0;
 }
 
-/* Button override */
 .columns.columns27 .button-container .button {
   background: #fff;
   color: #111;
@@ -1790,7 +1774,6 @@
   text-decoration: none;
 }
 
-/* Right image column */
 .columns.columns27 > div > .columns-img-col {
   flex: 1 1 46%;
   max-width: 46%;
@@ -1802,7 +1785,6 @@
   padding-top: 4px;
 }
 
-/* Picture/image: fill col height, preserve aspect, round corners */
 .columns.columns27 > div > .columns-img-col picture,
 .columns.columns27 > div > .columns-img-col img {
   width: 100%;
@@ -1831,7 +1813,60 @@
   }
 }
 
-/* Remove default top margins in text block */
 .columns.columns27 > div > div:first-child > * {
   margin-top: 0;
+}
+
+
+.columns.columns29 {
+  background: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+/* Use flexbox for side-by-side layout, letting columns grow to the tallest content */
+.columns.columns29 > div {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Each column is half-width */
+.columns.columns29 .columns-img-col {
+  flex: 1 1 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+/* Maintain visual balance: aspect-ratio for consistent height/crop */
+.columns.columns29 .columns-img-col picture,
+.columns.columns29 .columns-img-col img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  display: block;
+  height: auto;
+  max-height: 500px;
+}
+
+/* Crop and round images */
+.columns.columns29 .columns-img-col img {
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+/* Responsive: stack vertically on smaller screens */
+@media (width <= 899px) {
+  .columns.columns29 > div {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .columns.columns29 .columns-img-col picture,
+  .columns.columns29 .columns-img-col img {
+    aspect-ratio: 16/9;
+    max-height: 320px;
+  }
 }
