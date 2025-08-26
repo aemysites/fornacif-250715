@@ -175,7 +175,6 @@
   }
 }
 
-/* --- Left column: image and intro text --- */
 .columns.columns2 > div > .columns-img-col {
   flex: 1 1 0;
   max-width: 470px;
@@ -194,7 +193,6 @@
   display: block;
 }
 
-/* Intro text breakdown: tag, headline, subtitle */
 .columns.columns2 > div > .columns-img-col p {
   margin: 0;
   padding: 0;
@@ -235,7 +233,6 @@
   line-height: 1.6;
 }
 
-/* --- Right column --- */
 .columns.columns2 > div > div:not(.columns-img-col) {
   flex: 1 1 0;
   max-width: 600px;
@@ -246,9 +243,6 @@
   padding-top: 2px;
 }
 
-/* ----- CARD GROUPING: wrap image+tag+headline+desc as a card ----- */
-
-/* Set up a visual card group for the first two cards using a flex column wrapper */
 .columns.columns2 > div > div:not(.columns-img-col) > .card-block {
   background: #fff;
   border-radius: 18px;
@@ -261,7 +255,6 @@
   gap: 10px;
 }
 
-/* --- The following simulates pseudo card blocks with given html structure --- */
 .columns.columns2 > div > div:not(.columns-img-col) > p:has(picture) {
   padding: 0;
   margin: 0;
@@ -274,7 +267,6 @@
   border-bottom-right-radius: 0;
 }
 
-/* Group everything until the next image as one card visually */
 .columns.columns2 > div > div:not(.columns-img-col) > p:has(picture),
 .columns.columns2 > div > div:not(.columns-img-col) > p:has(picture) + .button-container,
 .columns.columns2 > div > div:not(.columns-img-col) > p:has(picture) + .button-container + h3,
@@ -319,7 +311,6 @@
   border-bottom-right-radius: 18px;
 }
 
-/* --- Card image --- */
 .columns.columns2 > div > div:not(.columns-img-col) > p picture img {
   width: 100%;
   border-radius: 16px;
@@ -328,7 +319,6 @@
   margin-bottom: 8px;
 }
 
-/* Card tag (pill) */
 .columns.columns2 > div > div:not(.columns-img-col) > .button-container .button,
 .columns.columns2 > div > div:not(.columns-img-col) > .button-container + h3 + .button-container .button {
   display: inline-block;
@@ -349,9 +339,6 @@
   line-height: 1.6;
 }
 
-/* Card headline */
-
-/* Card description */
 .columns.columns2 > div > div:not(.columns-img-col) > .button-container .button[title*="Serve up"],
 .columns.columns2 > div > div:not(.columns-img-col) > .button-container .button[title*="Catch waves"] {
   font-size: 14px;
@@ -368,12 +355,10 @@
   display: block;
 }
 
-/* --- List section after cards --- */
 .columns.columns2 > div > div:not(.columns-img-col) > h3:nth-of-type(n+3) {
   margin-top: 30px;
 }
 
-/* List tag (pill) */
 .columns.columns2 > div > div:not(.columns-img-col) > .button-container .button:not([title*="Serve up"], [title*="Catch waves"]) {
   display: block;
   font-size: 14px;
@@ -392,7 +377,6 @@
   text-align: left;
 }
 
-/* List headline */
 .columns.columns2 > div > div:not(.columns-img-col) > h3:not(:nth-of-type(-n+2)) {
   font-size: 18px;
   color: #222;
@@ -406,16 +390,12 @@
   letter-spacing: 0;
 }
 
-/* Remove border from last list item */
 .columns.columns2 > div > div:not(.columns-img-col) > h3:last-of-type {
   border-bottom: none;
   padding-bottom: 0;
   margin-bottom: 0;
 }
 
-/* List description */
-
-/* Responsive adjustments */
 @media (width <= 600px) {
   .columns.columns2 > div > .columns-img-col,
   .columns.columns2 > div > div:not(.columns-img-col) {
@@ -426,5 +406,126 @@
   .columns.columns2 > div {
     gap: 12px;
     padding: 0;
+  }
+}
+
+
+.columns.columns3 > div {
+  /* Two main columns side by side, vertically centered */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; /* Center both columns vertically */
+  gap: 36px;
+  width: 100%;
+  padding: 64px 0;
+  box-sizing: border-box;
+  min-height: 270px; /* Ensures enough vertical space for centering */
+}
+
+.columns.columns3 > div > div:first-child {
+  /* Left column: heading + paragraph stacked, vertically centered */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 540px;
+  gap: 20px;
+}
+
+.columns.columns3 > div > div:first-child h2 {
+  font-family: Syncopate, 'Syncopate Fallback', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin: 0 0 10px;
+  color: #000;
+  line-height: 1.08;
+  max-width: 540px;
+}
+
+.columns.columns3 > div > div:first-child p {
+  font-size: 1rem;
+  color: #000;
+  margin: 0;
+  max-width: 540px;
+  line-height: 1.45;
+}
+
+.columns.columns3 > div > div:last-child {
+  /* Right column: buttons vertically stacked, center block relative to left column's paragraph */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  min-width: 180px;
+}
+
+.columns.columns3 > div > div:last-child p {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-end;
+  margin: 0;
+}
+
+.columns.columns3 > div > div:last-child a {
+  display: block;
+  width: 180px;
+  padding: 12px 0;
+  font-size: 1rem;
+  font-family: 'Instrument Sans', 'Instrument Sans Fallback', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  background: #fff;
+  color: #000;
+  border: 1.5px solid #000;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: background 0.18s, border-color 0.18s;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.columns.columns3 > div > div:last-child a:first-child {
+  border-right: 1.5px solid #e6e600;
+}
+
+.columns.columns3 > div > div:last-child a:hover,
+.columns.columns3 > div > div:last-child a:focus {
+  background: #f8f8f8;
+  color: #000;
+  text-decoration: none;
+}
+
+@media (width <= 900px) {
+  .columns.columns3 > div {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 40px 0;
+    min-height: unset;
+    gap: 0;
+  }
+
+  .columns.columns3 > div > div:first-child {
+    max-width: 100%;
+  }
+
+  .columns.columns3 > div > div:last-child {
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-width: 160px;
+    margin-top: 24px;
+  }
+
+  .columns.columns3 > div > div:last-child p {
+    align-items: flex-start;
+  }
+
+  .columns.columns3 > div > div:last-child a {
+    width: 100%;
+    min-width: 160px;
   }
 }
