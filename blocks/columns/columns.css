@@ -1359,7 +1359,6 @@
   }
 }
 
-/* --- LEFT COLUMN: CONTENT --- */
 .columns.columns18 > div:first-child {
   display: flex;
   flex-direction: column;
@@ -1367,7 +1366,6 @@
   gap: 32px;
 }
 
-/* Headings and text */
 .columns.columns18 h2 {
   font-size: 15px;
   text-transform: uppercase;
@@ -1412,7 +1410,6 @@
   margin: 0;
 }
 
-/* --- RIGHT COLUMN: CONTACT SIDEBAR --- */
 .columns.columns18 > div:last-child {
   display: flex;
   flex-direction: column;
@@ -1423,7 +1420,6 @@
   padding-top: 4px;
 }
 
-/* Contact block: group h4 and ul vertically, left-aligned, compact */
 .columns.columns18 > div:last-child > div {
   display: flex;
   flex-direction: column;
@@ -1433,7 +1429,6 @@
   width: 100%;
 }
 
-/* Target each group (h4 + ul) as a contact block */
 .columns.columns18 > div:last-child > div > h4 {
   font-size: 13px;
   text-transform: uppercase;
@@ -1456,7 +1451,6 @@
   width: 100%;
 }
 
-/* Contact icon: left, with background, reduce gap */
 .columns.columns18 > div:last-child > div > ul > li:first-child {
   display: flex;
   align-items: center;
@@ -1480,7 +1474,6 @@
   margin: 0;
 }
 
-/* Contact value(s): left-aligned, reduce vertical margin */
 .columns.columns18 > div:last-child > div > ul > li:not(:first-child) {
   margin: 0;
   font-size: 17px;
@@ -1491,6 +1484,7 @@
   text-align: left;
   display: block;
   word-break: break-word;
+  overflow-wrap: anywhere;
   padding: 0;
 }
 
@@ -1505,12 +1499,10 @@
   margin-bottom: 1px;
 }
 
-/* Remove default spacing between h4 and ul */
 .columns.columns18 > div:last-child > div > h4 + ul {
   margin-top: 0;
 }
 
-/* Responsive tweaks for sidebar */
 @media (width <= 900px) {
   .columns.columns18 > div:last-child {
     align-items: flex-start;
@@ -1523,12 +1515,180 @@
   }
 }
 
-/* Slightly reduce sidebar width on very wide screens */
 @media (width >= 1280px) {
   .columns.columns18 {
     grid-template-columns: 2.2fr 0.53fr;
     max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+
+.columns.columns26 {
+  background: #fafbf8;
+  padding: 64px 0 36px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Two columns: left (content) and right (logo/empty) */
+.columns.columns26 > div {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 56px;
+  max-width: 1040px;
+  width: 100%;
+  align-items: start;
+}
+
+@media (width <= 900px) {
+  .columns.columns26 > div {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    max-width: 97vw;
+  }
+}
+
+/* Layout for left content column */
+.columns.columns26 > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+}
+
+/* Group heading and quote side by side at desktop */
+.columns.columns26 > div > div:first-child > div:first-child {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 44px;
+  width: 100%;
+  border-bottom: 1px solid #e4e5e2;
+  padding-bottom: 24px;
+  margin-bottom: 18px;
+}
+
+@media (width <= 900px) {
+  .columns.columns26 > div > div:first-child > div:first-child {
+    flex-direction: column;
+    gap: 20px;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+}
+
+/* Heading styles */
+.columns.columns26 > div > div:first-child > div:first-child > p:first-child {
+  font-family: Syncopate, 'Syncopate Fallback', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 400;
+  letter-spacing: 0.045em;
+  color: #181a1b;
+  text-transform: uppercase;
+  margin: 0 0 0.5em;
+  line-height: 1.07;
+  flex: 0 0 44%;
+  max-width: 340px;
+}
+
+@media (width <= 900px) {
+  .columns.columns26 > div > div:first-child > div:first-child > p:first-child {
+    font-size: 2rem;
+    margin-bottom: 0.7em;
+    flex-basis: auto;
+    max-width: 100%;
+  }
+}
+
+/* Quote styles */
+.columns.columns26 > div > div:first-child > div:first-child > p:nth-child(2) {
+  font-family: var(--body-font-family);
+  font-size: 1.12rem;
+  color: #232323;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.45;
+  flex: 1 1 56%;
+  max-width: 420px;
+}
+
+/* --- AUTHOR ROW: avatar left, name/role stacked right --- */
+
+/* Flex row for avatar + name/role */
+.columns.columns26 > div > div:first-child > p:nth-of-type(3) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 18px 0 0;
+  gap: 18px;
+}
+
+/* Avatar */
+.columns.columns26 > div > div:first-child > p:nth-of-type(3) picture img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  display: block;
+  background: #f5f5f5;
+}
+
+/* Name/role vertical stack */
+.columns.columns26 > div > div:first-child > p:nth-of-type(4),
+.columns.columns26 > div > div:first-child > p:nth-of-type(5) {
+  margin: 0;
+  padding: 0;
+  line-height: 1.18;
+}
+
+.columns.columns26 > div > div:first-child > p:nth-of-type(4) {
+  font-family: var(--body-font-family);
+  font-weight: 500;
+  font-size: 1rem;
+  color: #232323;
+  margin-bottom: 2px;
+  margin-left: 0;
+}
+
+.columns.columns26 > div > div:first-child > p:nth-of-type(5) {
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  font-size: 0.99rem;
+  color: #6b6b6b;
+  margin-left: 0;
+}
+
+/* Stack name/role vertically, directly right of avatar */
+.columns.columns26 > div > div:first-child > p:nth-of-type(3) + p,
+.columns.columns26 > div > div:first-child > p:nth-of-type(3) + p + p {
+  margin-left: 0;
+}
+
+.columns.columns26 > div > div:first-child > p:nth-of-type(3) ~ p:nth-of-type(4),
+.columns.columns26 > div > div:first-child > p:nth-of-type(3) ~ p:nth-of-type(5) {
+  display: none;
+}
+
+/* Use a wrapper div to group name/role vertically if possible. If not, keep margins tight. */
+
+/* --- RIGHT COLUMN (logo/brand, if present) --- */
+.columns.columns26 > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-height: 156px;
+  height: 100%;
+}
+
+@media (width <= 900px) {
+  .columns.columns26 > div > div:last-child {
+    min-height: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 }
