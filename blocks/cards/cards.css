@@ -646,8 +646,6 @@
   margin: 0;
   padding: 0;
   list-style: none;
-
-  /* Remove column-count if previously applied */
   column-count: unset;
   column-gap: unset;
 }
@@ -659,7 +657,6 @@
   }
 }
 
-/* Stagger featured cards for magazine rhythm */
 .cards.cards25 > ul > li {
   margin: 0;
   border-radius: 28px;
@@ -673,7 +670,6 @@
   min-height: 230px;
 }
 
-/* Make the 2nd and 4th card taller for dynamic stagger */
 .cards.cards25 > ul > li:nth-child(2),
 .cards.cards25 > ul > li:nth-child(4) {
   grid-row: span 2;
@@ -744,17 +740,211 @@
   color: #222;
 }
 
-/* Responsive body padding for smaller screens */
 @media (width <= 900px) {
   .cards.cards25 .cards-card-body {
     padding: 22px 18px 0;
   }
 }
 
-/* Remove any default margin/padding for clean layout */
 .cards.cards25 > ul,
 .cards.cards25 > ul > li,
 .cards.cards25 .cards-card-body {
   margin: 0;
   padding: 0;
 }
+
+
+.cards.cards33 {
+  background: #f9faf7;
+  border-radius: 24px;
+  padding: 16px 0 0;
+  margin: 0 auto;
+  box-shadow: none;
+}
+
+.cards.cards33 > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (width <= 900px) {
+  .cards.cards33 > ul {
+    grid-template-columns: 1fr;
+    gap: 20px 0;
+  }
+}
+
+.cards.cards33 > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 7%);
+  margin: 0;
+  padding: 28px 32px 28px 28px;
+  border: none;
+  min-height: 200px;
+  box-sizing: border-box;
+  gap: 28px;
+  position: relative;
+  transition: box-shadow 0.25s;
+}
+
+@media (width <= 900px) {
+  .cards.cards33 > ul > li {
+    flex-direction: column;
+    gap: 16px;
+    padding: 18px 12px;
+    min-height: 0;
+  }
+}
+
+.cards.cards33 .cards-card-image {
+  flex: 0 0 265px;
+  max-width: 265px;
+  min-width: 210px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  line-height: 0;
+  margin: 0;
+}
+
+.cards.cards33 .cards-card-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 17px;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 2%);
+}
+
+@media (width <= 900px) {
+  .cards.cards33 .cards-card-image,
+  .cards.cards33 .cards-card-image img {
+    max-width: none;
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+.cards.cards33 .cards-card-body {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Tag and read time row */
+.cards.cards33 .cards-card-body .cards-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  margin-top: 0;
+  min-height: 28px;
+}
+
+/* Fallback for inserting flex row when .cards-tag-row is not present */
+.cards.cards33 .cards-card-body p:first-child,
+.cards.cards33 .cards-card-body p:nth-child(2) {
+  margin-bottom: 0;
+  margin-top: 0;
+  vertical-align: middle;
+}
+
+/* Simulate horizontal row for tag + read time */
+.cards.cards33 .cards-card-body p:first-child {
+  display: inline-block;
+  background: #eaece5;
+  color: #393939;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 14px;
+  padding: 4px 22px 4px 18px;
+  margin-right: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.cards.cards33 .cards-card-body p:nth-child(2) {
+  display: inline-block;
+  color: #b7bbb3;
+  font-size: 13px;
+  font-weight: 400;
+  margin: 0;
+  vertical-align: middle;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+/* Group the two in a pseudo-row */
+.cards.cards33 .cards-card-body p:first-child + p:nth-child(2) {
+  margin-left: 0;
+}
+
+/* Title styles: tighter spacing */
+.cards.cards33 .cards-card-body h3 {
+  margin-top: 8px;
+  margin-bottom: 6px;
+  font-size: 24px;
+  font-family: Syncopate, Syncopate Fallback, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #232323;
+  line-height: 1.15;
+  text-transform: none;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.cards.cards33 .cards-card-body p:nth-child(4) {
+  font-size: 16px;
+  color: #575757;
+  font-weight: 400;
+  margin: 0 0 12px;
+  line-height: 1.5;
+  max-width: 480px;
+}
+
+.cards.cards33 .button-container {
+  margin-top: auto;
+  padding: 0;
+}
+
+.cards.cards33 .button-container .button {
+  font-size: 15px;
+  font-weight: 700;
+  color: #232323;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  text-decoration: underline;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  line-height: 1.25;
+  transition: color 0.2s;
+}
+
+.cards.cards33 .button-container .button:hover,
+.cards.cards33 .button-container .button:focus {
+  color: #3b63fb;
+  background: none;
+  text-decoration: underline;
+}
+
+/* Remove excessive outer padding and gap on block */
