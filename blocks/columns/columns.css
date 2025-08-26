@@ -577,8 +577,6 @@
   }
 }
 
-
-/* Main two-column layout, full viewport height */
 .columns.columns5 > .columns {
   display: flex;
   flex-direction: row;
@@ -589,7 +587,6 @@
   background: #fff;
 }
 
-/* Stack columns vertically on mobile */
 @media (width <= 900px) {
   .columns.columns5 > .columns {
     flex-direction: column;
@@ -597,7 +594,6 @@
   }
 }
 
-/* Perfect centering for the left column */
 .columns.columns5 > .columns > div:first-child {
   flex: 1 1 0;
   display: flex;
@@ -612,7 +608,6 @@
   height: 100%;
 }
 
-/* Responsive left column padding */
 @media (width <= 900px) {
   .columns.columns5 > .columns > div:first-child {
     padding: 7vw 6vw 4vw;
@@ -620,7 +615,6 @@
   }
 }
 
-/* Headline styling */
 .columns.columns5 h2 {
   font-family: var(--heading-font-family);
   font-size: var(--heading-font-size-xl);
@@ -632,7 +626,6 @@
   line-height: 1.05;
 }
 
-/* Paragraph styling: comfortable max-width, balanced margins */
 .columns.columns5 p {
   font-size: var(--body-font-size-s);
   color: #666;
@@ -642,17 +635,15 @@
   max-width: 35em;
 }
 
-/* Button container: horizontal alignment and spacing */
 .columns.columns5 .button-container {
   display: flex;
   flex-direction: row;
   gap: 1.2rem;
   margin-top: 0.7rem;
-  margin-bottom: 0; /* Reduce bottom margin for better vertical centering */
+  margin-bottom: 0;
   align-items: center;
 }
 
-/* Pill-shaped outlined button: overrides blue solid default */
 .columns.columns5 .button-container .button {
   background: #fff;
   border: 1.5px solid #222;
@@ -677,13 +668,11 @@
   text-decoration: none;
 }
 
-/* If multiple buttons, style the second one as lighter */
 .columns.columns5 .button-container .button + .button {
   border-color: #888;
   color: #888;
 }
 
-/* Right column (image container) */
 .columns.columns5 .columns-img-col {
   flex: 1 1 0;
   display: flex;
@@ -697,7 +686,6 @@
   overflow: hidden;
 }
 
-/* Ensure image and picture fill and crop correctly */
 .columns.columns5 .columns-img-col picture,
 .columns.columns5 .columns-img-col img {
   display: block;
@@ -708,7 +696,6 @@
   padding: 0;
 }
 
-/* Responsive image height for mobile */
 @media (width <= 900px) {
   .columns.columns5 .columns-img-col {
     height: 320px;
@@ -721,4 +708,218 @@
     height: 100%;
     object-fit: cover;
   }
+}
+
+
+.columns.columns9 {
+  background: #000;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  font-family: var(--body-font-family);
+  padding: 0;
+}
+
+/* Four columns layout, top-aligned */
+.columns.columns9 > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding: 40px 60px 32px;
+  align-items: start;
+}
+
+@media (width <= 900px) {
+  .columns.columns9 > div {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 24px 10px 18px;
+  }
+}
+
+/* First column: force logo and blog name into a flex row */
+.columns.columns9 > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  font-size: 0;
+}
+
+.columns.columns9 > div > div:first-child .branding-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+/* "Simulate" a row with the first two children using a flex row and wrapping if needed */
+.columns.columns9 > div > div:first-child > .branding-fake-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Workaround: Make both logo <p> and blog name .button-container inline-block and remove whitespace between them */
+
+.columns.columns9 > div > div:first-child > p:first-child,
+.columns.columns9 > div > div:first-child > .button-container {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  vertical-align: middle;
+  font-size: 1.05rem;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns9 > div > div:first-child > .button-container {
+  margin-left: 0;
+}
+
+.columns.columns9 > div > div:first-child .button {
+  background: none;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  box-shadow: none;
+  cursor: default;
+  pointer-events: none;
+  margin: 0;
+  line-height: 1.2;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+}
+
+/* Logo image sizing and alignment */
+.columns.columns9 > div > div:first-child picture img {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  margin: 0;
+  vertical-align: middle;
+  display: block;
+}
+
+/* Social icons: horizontal row, only icons, small, no bg, even spacing */
+.columns.columns9 > div > div:first-child > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.columns.columns9 > div > div:first-child > ul li {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.columns.columns9 > div > div:first-child > ul li:not(:has(picture)) {
+  display: none;
+}
+
+.columns.columns9 > div > div:first-child > ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 0;
+  min-width: 22px;
+  min-height: 22px;
+}
+
+.columns.columns9 > div > div:first-child > ul li a picture,
+.columns.columns9 > div > div:first-child > ul li a img {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  min-height: 22px;
+  filter: brightness(0) invert(1);
+  display: block;
+  vertical-align: middle;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Remove bullets, set text colors, clean spacing for all columns */
+.columns.columns9 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns9 ul li {
+  margin-bottom: 10px;
+}
+
+.columns.columns9 ul li a {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: color 0.2s;
+  line-height: 1.55;
+}
+
+.columns.columns9 ul li a:hover,
+.columns.columns9 ul li a:focus {
+  color: #ccc;
+}
+
+/* COLUMN HEADINGS */
+.columns.columns9 h2 {
+  font-size: 0.92rem;
+  color: #666;
+  font-family: inherit;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  margin: 0 0 15px;
+  line-height: 1.4;
+  margin-top: 0;
+}
+
+/* Subcolumn stacking for menu columns */
+.columns.columns9 > div > div:not(:first-child) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  min-width: 0;
+}
+
+/* Responsive tweaks for tighter fit on small screens */
+@media (width <= 600px) {
+  .columns.columns9 > div {
+    padding: 16px 4vw 12px;
+    gap: 16px;
+  }
+
+  .columns.columns9 > div > div {
+    gap: 12px;
+  }
+}
+
+/* Remove extra vertical gap below branding row and icons */
+
+/* Prevent first column from being wider than others */
+.columns.columns9 > div > div {
+  min-width: 0;
 }
