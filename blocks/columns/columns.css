@@ -719,7 +719,6 @@
   padding: 0;
 }
 
-/* Four columns layout, top-aligned */
 .columns.columns9 > div {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -736,7 +735,6 @@
   }
 }
 
-/* First column: force logo and blog name into a flex row */
 .columns.columns9 > div > div:first-child {
   display: flex;
   flex-direction: column;
@@ -753,7 +751,6 @@
   gap: 12px;
 }
 
-/* "Simulate" a row with the first two children using a flex row and wrapping if needed */
 .columns.columns9 > div > div:first-child > .branding-fake-row {
   display: flex;
   flex-direction: row;
@@ -761,8 +758,6 @@
   gap: 12px;
   width: 100%;
 }
-
-/* Workaround: Make both logo <p> and blog name .button-container inline-block and remove whitespace between them */
 
 .columns.columns9 > div > div:first-child > p:first-child,
 .columns.columns9 > div > div:first-child > .button-container {
@@ -800,7 +795,6 @@
   align-items: center;
 }
 
-/* Logo image sizing and alignment */
 .columns.columns9 > div > div:first-child picture img {
   width: 32px;
   height: 32px;
@@ -811,7 +805,6 @@
   display: block;
 }
 
-/* Social icons: horizontal row, only icons, small, no bg, even spacing */
 .columns.columns9 > div > div:first-child > ul {
   display: flex;
   flex-direction: row;
@@ -857,7 +850,6 @@
   box-shadow: none;
 }
 
-/* Remove bullets, set text colors, clean spacing for all columns */
 .columns.columns9 ul {
   list-style: none;
   margin: 0;
@@ -883,7 +875,6 @@
   color: #ccc;
 }
 
-/* COLUMN HEADINGS */
 .columns.columns9 h2 {
   font-size: 0.92rem;
   color: #666;
@@ -896,7 +887,6 @@
   margin-top: 0;
 }
 
-/* Subcolumn stacking for menu columns */
 .columns.columns9 > div > div:not(:first-child) {
   display: flex;
   flex-direction: column;
@@ -905,7 +895,6 @@
   min-width: 0;
 }
 
-/* Responsive tweaks for tighter fit on small screens */
 @media (width <= 600px) {
   .columns.columns9 > div {
     padding: 16px 4vw 12px;
@@ -917,9 +906,181 @@
   }
 }
 
-/* Remove extra vertical gap below branding row and icons */
-
-/* Prevent first column from being wider than others */
 .columns.columns9 > div > div {
   min-width: 0;
+}
+
+
+.columns.columns11 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: 56px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 72px 0;
+
+  /* This ensures both columns occupy full height and can be centered */
+  min-height: 680px;
+  position: relative;
+}
+
+/* Left column: text and meta */
+.columns.columns11 > div:first-child {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 34px;
+  align-self: stretch;
+}
+
+/* Headline block */
+.columns.columns11 > div:first-child > div:first-child p {
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  color: #8d8d8d;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.columns.columns11 > div:first-child > div:first-child h1 {
+  font-family: var(--heading-font-family);
+  font-size: 68px;
+  font-weight: 500;
+  color: var(--text-color);
+  margin: 0;
+  line-height: 1.08;
+  letter-spacing: -1.2px;
+}
+
+/* Meta block: description, avatar, author info, button */
+.columns.columns11 > div:first-child > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Description paragraph */
+.columns.columns11 > div:first-child > div:nth-child(2) > p:first-child {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.48;
+  margin: 0 0 10px;
+}
+
+/* Author meta: compact, inline */
+.columns.columns11 > div:first-child > div:nth-child(2) picture {
+  display: inline-block;
+  vertical-align: middle;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 8px;
+  margin-bottom: -6px;
+}
+
+/* Group author, date, dot, read time inline */
+.columns.columns11 > div:first-child > div:nth-child(2) > p:not(:first-child, .button-container) {
+  display: inline;
+  font-size: 15px;
+  color: #666;
+  margin-right: 7px;
+  vertical-align: middle;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Button styling and alignment */
+.columns.columns11 .button-container {
+  margin-top: 10px;
+}
+
+.columns.columns11 .button {
+  background: transparent;
+  color: #1a1a1a;
+  border: 1.5px solid #1a1a1a;
+  border-radius: 24px;
+  padding: 7px 22px;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  box-shadow: none;
+  transition: background .2s, color .2s;
+}
+
+.columns.columns11 .button:hover,
+.columns.columns11 .button:focus {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+/* Right column: images grid */
+.columns.columns11 > div:last-child {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: center; /* Center images block vertically in parent */
+  justify-content: flex-start;
+
+  /* Use min-height to allow vertical centering to work correctly */
+  min-height: 680px;
+}
+
+/* Image block styling */
+.columns.columns11 .columns-img-col {
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f8f8f8;
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  min-width: 0;
+  max-width: 320px;
+}
+
+.columns.columns11 .columns-img-col picture,
+.columns.columns11 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+}
+
+/* Responsive: stack columns on small screens */
+@media (width <= 900px) {
+  .columns.columns11 {
+    flex-direction: column;
+    gap: 32px;
+    padding: 36px 0;
+    min-height: unset;
+  }
+
+  .columns.columns11 > div:first-child,
+  .columns.columns11 > div:last-child {
+    align-self: stretch;
+    min-height: unset;
+  }
+
+  .columns.columns11 > div:last-child {
+    flex-direction: column;
+    gap: 24px 0;
+    margin-top: 24px;
+    align-items: stretch;
+  }
+
+  .columns.columns11 .columns-img-col {
+    aspect-ratio: unset;
+    max-width: 100%;
+    height: auto;
+  }
 }
