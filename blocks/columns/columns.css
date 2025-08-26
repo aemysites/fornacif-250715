@@ -411,20 +411,18 @@
 
 
 .columns.columns3 > div {
-  /* Two main columns side by side, vertically centered */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center; /* Center both columns vertically */
+  align-items: center;
   gap: 36px;
   width: 100%;
   padding: 64px 0;
   box-sizing: border-box;
-  min-height: 270px; /* Ensures enough vertical space for centering */
+  min-height: 270px;
 }
 
 .columns.columns3 > div > div:first-child {
-  /* Left column: heading + paragraph stacked, vertically centered */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -454,7 +452,6 @@
 }
 
 .columns.columns3 > div > div:last-child {
-  /* Right column: buttons vertically stacked, center block relative to left column's paragraph */
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -527,5 +524,59 @@
   .columns.columns3 > div > div:last-child a {
     width: 100%;
     min-width: 160px;
+  }
+}
+
+
+.columns.columns4 {
+  background: #f7f8f5;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 36px 0 0; /* ample top padding */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 110px; /* ensures vertical space even when content is minimal */
+}
+
+/* Robustly target any direct children, even if text is within a plain div or p */
+.columns.columns4 > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Robust catch-all for all descendants, for text rendering issues */
+.columns.columns4,
+.columns.columns4 * {
+  color: #222;
+  font-family: "Instrument Sans", "Instrument Sans Fallback", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+/* Ensure text is always centered horizontally and doesn't break out of layout */
+.columns.columns4 > div > * {
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (width <= 600px) {
+  .columns.columns4 {
+    padding-top: 24px;
+    min-height: 70px;
+  }
+
+  .columns.columns4 > div > * {
+    font-size: 15px;
+    max-width: 100%;
   }
 }
