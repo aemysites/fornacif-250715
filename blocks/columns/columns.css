@@ -1315,8 +1315,6 @@
   padding: 0;
   vertical-align: bottom;
 }
-
-/* Individual playful rotations for each image */
 .columns.columns16 .columns-img-col:nth-child(1) { transform: rotate(-5deg);}
 .columns.columns16 .columns-img-col:nth-child(2) { transform: rotate(3deg);}
 .columns.columns16 .columns-img-col:nth-child(3) { transform: rotate(-4deg);}
@@ -1324,7 +1322,6 @@
 .columns.columns16 .columns-img-col:nth-child(5) { transform: rotate(-2.5deg);}
 .columns.columns16 .columns-img-col:nth-child(6) { transform: rotate(4deg);}
 
-/* Responsive adjustments: stack images and reduce gap/sizing on small screens */
 @media (width <= 700px) {
   .columns.columns16 > div {
     flex-wrap: wrap;
@@ -1338,5 +1335,200 @@
     max-width: 90vw;
     height: auto;
     min-width: 120px;
+  }
+}
+
+
+.columns.columns18 {
+  background: #fff;
+  border-radius: 28px;
+  padding: 60px 56px 56px 64px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 2.1fr 0.55fr;
+  gap: 48px;
+  align-items: flex-start;
+  max-width: 1200px;
+}
+
+@media (width <= 900px) {
+  .columns.columns18 {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 8px;
+  }
+}
+
+/* --- LEFT COLUMN: CONTENT --- */
+.columns.columns18 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 32px;
+}
+
+/* Headings and text */
+.columns.columns18 h2 {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #999;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.columns.columns18 h3 {
+  font-size: 40px;
+  font-family: Montserrat, 'Instrument Sans', sans-serif;
+  color: #232323;
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  margin-bottom: 12px;
+  margin-top: 0;
+  line-height: 1.1;
+}
+
+.columns.columns18 h2 + h3 + p {
+  font-size: 17px;
+  color: #555;
+  font-family: var(--body-font-family);
+  margin-bottom: 0;
+  margin-top: 0;
+  line-height: 1.5;
+}
+
+.columns.columns18 .columns-img-col {
+  margin-top: 8px;
+}
+
+.columns.columns18 .columns-img-col picture,
+.columns.columns18 .columns-img-col img {
+  width: 100%;
+  border-radius: 28px;
+  display: block;
+  box-shadow: none;
+  margin: 0;
+}
+
+/* --- RIGHT COLUMN: CONTACT SIDEBAR --- */
+.columns.columns18 > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  height: 100%;
+  padding-top: 4px;
+}
+
+/* Contact block: group h4 and ul vertically, left-aligned, compact */
+.columns.columns18 > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Target each group (h4 + ul) as a contact block */
+.columns.columns18 > div:last-child > div > h4 {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #b0b0b0;
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin: 0 0 6px;
+  line-height: 1.15;
+  text-align: left;
+}
+
+.columns.columns18 > div:last-child > div > ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Contact icon: left, with background, reduce gap */
+.columns.columns18 > div:last-child > div > ul > li:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 0;
+}
+
+.columns.columns18 > div:last-child > div > ul picture,
+.columns.columns18 > div:last-child > div > ul img {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 50%;
+  background: #f4f4f4;
+  padding: 8px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+/* Contact value(s): left-aligned, reduce vertical margin */
+.columns.columns18 > div:last-child > div > ul > li:not(:first-child) {
+  margin: 0;
+  font-size: 17px;
+  color: #232323;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+  display: block;
+  word-break: break-word;
+  padding: 0;
+}
+
+.columns.columns18 > div:last-child > div > ul > li:not(:first-child) a {
+  color: #444;
+  font-size: 17px;
+  word-break: break-all;
+  text-align: left;
+}
+
+.columns.columns18 > div:last-child > div > ul > li:not(:first-child, :last-child) {
+  margin-bottom: 1px;
+}
+
+/* Remove default spacing between h4 and ul */
+.columns.columns18 > div:last-child > div > h4 + ul {
+  margin-top: 0;
+}
+
+/* Responsive tweaks for sidebar */
+@media (width <= 900px) {
+  .columns.columns18 > div:last-child {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 0;
+  }
+
+  .columns.columns18 > div:last-child > div {
+    gap: 14px;
+  }
+}
+
+/* Slightly reduce sidebar width on very wide screens */
+@media (width >= 1280px) {
+  .columns.columns18 {
+    grid-template-columns: 2.2fr 0.53fr;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
