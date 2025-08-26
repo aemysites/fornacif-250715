@@ -1173,11 +1173,8 @@
   padding: 64px 0;
   width: 100%;
   box-sizing: border-box;
-
-  /* Ensures image and text are aligned at the top, but allows for optical alignment tweaks below */
 }
 
-/* Left column: slightly wider for better headline wrapping and alignment */
 .columns.columns15 > div > div:not(.columns-img-col) {
   flex: 0 1 415px;
   max-width: 415px;
@@ -1185,12 +1182,9 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
-  /* Optical adjustment to lower this column slightly to align headline with image top */
   padding-top: 18px;
 }
 
-/* Headline: tight stacking */
 .columns.columns15 h1 {
   font-family: Syncopate, 'Syncopate Fallback', sans-serif;
   font-size: 64px;
@@ -1202,7 +1196,6 @@
   margin-bottom: 6px;
 }
 
-/* Paragraph: clean and compact */
 .columns.columns15 p {
   color: #757575;
   font-size: 16px;
@@ -1211,7 +1204,6 @@
   margin-top: 0;
 }
 
-/* Button container: stay grouped under text */
 .columns.columns15 .button-container {
   display: flex;
   gap: 12px;
@@ -1219,7 +1211,6 @@
   margin-bottom: 0;
 }
 
-/* Button: match visual weight and shape */
 .columns.columns15 .button-container .button {
   background: #F7F8F6;
   color: #1A1A1A;
@@ -1240,7 +1231,6 @@
   white-space: nowrap;
 }
 
-/* Right column: image should align closely with headline top, be prominent but not oversized */
 .columns.columns15 .columns-img-col {
   flex: 1 1 0;
   display: flex;
@@ -1260,7 +1250,6 @@
   margin-top: 0;
 }
 
-/* Responsive: stack columns vertically */
 @media (width <= 900px) {
   .columns.columns15 > div {
     flex-direction: column;
@@ -1283,5 +1272,71 @@
     max-width: 100%;
     flex-basis: 100%;
     padding-top: 0;
+  }
+}
+
+
+.columns.columns16 {
+  background: #fff;
+  padding-top: 36px;
+  padding-bottom: 36px;
+}
+
+.columns.columns16 > div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 40px;
+  padding: 40px 0;
+  width: 100%;
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+
+.columns.columns16 .columns-img-col {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns16 .columns-img-col img {
+  width: 180px;
+  height: 130px;
+  object-fit: cover;
+  display: block;
+  border: none;
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: bottom;
+}
+
+/* Individual playful rotations for each image */
+.columns.columns16 .columns-img-col:nth-child(1) { transform: rotate(-5deg);}
+.columns.columns16 .columns-img-col:nth-child(2) { transform: rotate(3deg);}
+.columns.columns16 .columns-img-col:nth-child(3) { transform: rotate(-4deg);}
+.columns.columns16 .columns-img-col:nth-child(4) { transform: rotate(6deg);}
+.columns.columns16 .columns-img-col:nth-child(5) { transform: rotate(-2.5deg);}
+.columns.columns16 .columns-img-col:nth-child(6) { transform: rotate(4deg);}
+
+/* Responsive adjustments: stack images and reduce gap/sizing on small screens */
+@media (width <= 700px) {
+  .columns.columns16 > div {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  .columns.columns16 .columns-img-col img {
+    width: 42vw;
+    max-width: 90vw;
+    height: auto;
+    min-width: 120px;
   }
 }
