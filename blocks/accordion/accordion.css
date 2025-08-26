@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,131 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion13 {
+  background: #fff;
+}
+
+/* Layout: Always use flex row for item children */
+.accordion.accordion13 .accordion-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 55px;
+  border-bottom: 1px solid #888;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Remove last divider */
+.accordion.accordion13 .accordion-item:last-child {
+  border-bottom: none;
+}
+
+/* Suppress marker/chevron as much as possible */
+.accordion.accordion13 summary::-webkit-details-marker,
+.accordion.accordion13 summary::marker,
+.accordion.accordion13 summary::after,
+.accordion.accordion13 .accordion-item-label > summary::after {
+  display: none;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  color: transparent;
+}
+
+/* Remove summary pointer and interactivity */
+.accordion.accordion13 summary {
+  cursor: default;
+  pointer-events: none;
+  user-select: text;
+  padding: 0;
+  background: none;
+  outline: none;
+  border: none;
+}
+
+/* Left column (Question) */
+.accordion.accordion13 .accordion-item-label {
+  flex: 0 0 45%;
+  max-width: 45%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-right: 2%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Typography for Question Text */
+.accordion.accordion13 .accordion-item-label p {
+  font-family: Orbitron, Syncopate, Arial, sans-serif;
+  font-size: 21px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #888;
+  margin: 0;
+  line-height: 1.1;
+  white-space: normal;
+}
+
+/* Right column (Answer) */
+.accordion.accordion13 .accordion-item-body {
+  flex: 1 1 55%;
+  max-width: 55%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 2%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Typography for Answer Text */
+.accordion.accordion13 .accordion-item-body p {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  color: #222;
+  margin: 0;
+  line-height: 1.2;
+  white-space: normal;
+}
+
+/* Show answer only when details is open (required by HTML structure) */
+.accordion.accordion13 .accordion-item .accordion-item-body {
+  display: none;
+}
+
+.accordion.accordion13 .accordion-item[open] .accordion-item-body {
+  display: flex;
+}
+
+/* Remove extra margin between rows */
+.accordion.accordion13 .accordion-item + .accordion-item {
+  margin-top: 0;
+}
+
+/* Responsive: Stack columns on small screens */
+@media (width <= 700px) {
+  .accordion.accordion13 .accordion-item {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .accordion.accordion13 .accordion-item-label,
+  .accordion.accordion13 .accordion-item-body {
+    flex: 1 1 100%;
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+  }
 }
